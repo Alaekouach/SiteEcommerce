@@ -1,0 +1,134 @@
+.hr {
+    
+    align-items: center;
+    display: flex;
+    text-align: center;
+    color:gray;
+}
+
+.hr::before,.hr::after {
+    border-top: .0625em solid lightgray;
+    content: "";
+    flex: 1;
+    margin: 0 .99em;
+}
+
+/* animation du menu navbar */
+.navbar .nav-item .dropdown-menu{  display:block; opacity: 0;  visibility: hidden; transition:.3s; margin-top:0;  }
+.navbar .nav-item:hover .nav-link{ color: #fff;  }
+.navbar .dropdown-menu.fade-down{ top:80%; transform: rotateX(-75deg); transform-origin: 0% 0%; }
+.navbar .dropdown-menu.fade-up{ top:180%;  }
+.navbar .nav-item:hover .dropdown-menu{ transition: .3s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); }
+
+
+
+/* menu du profil administrateur*/
+
+.sidebar-nav .navbar .navbar-collapse {
+    padding: 0;
+    max-height: none;
+
+}
+.sidebar-nav .navbar ul {
+    float: none;
+    display: block;
+}
+.sidebar-nav .navbar li {
+    float: none;
+    display: block;
+}
+.sidebar-nav .navbar li a {
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.sty:hover{
+    background-color: rgb(136, 231, 140);
+    color:white;
+}
+
+
+/* menu sidebar page des produits*/
+
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+
+.sidebar .sidebar-menu{
+    overflow: hidden;
+}
+
+.sidebar-menu .item .menu-btn{
+    display: block;
+    color: rgb(76, 161, 90);
+    position: relative; 
+    padding: 15px 10px;
+    transition: 0.3s;
+    transition-property: color;
+}
+
+.sidebar-menu .item .menu-btn:hover{
+    color:rgb(52, 92, 58);
+}
+
+.sidebar-menu .item .menu-btn i{
+    margin-right: 20px;
+}
+
+.sidebar-menu .item .menu-btn .drop-down{
+    float: right;
+    font-size: 12px;
+    margin-top: 3px;
+}
+
+.sidebar-menu .item .sub-menu{
+    background: rgb(102, 175, 102);
+    overflow: hidden;
+    max-height: 0;
+    transition: 0.3s;
+    transition-property: background,max-height ;
+}
+
+.sidebar-menu .item .sub-menu a{
+    display: block;
+    position: relative; 
+    color: white;
+    white-space: nowrap;
+    font-size: 15px;
+    padding: 20px;
+    border-bottom: 1px solid lightgreen;
+    transition:0.3s;
+    transition-property: background;
+}
+
+.sidebar-menu .item .sub-menu a:hover{
+    background: rgb(51, 116, 51); ;
+}
+
+.sidebar-menu .item:target .sub-menu{
+    max-height: 500px;
+}
+
+
+/* menu sidebar page des produits test*/
+
+ul.sidebar-nav {list-style:none;}
+ul.sidebar-nav li ul { display:none; } 
+ul.sidebar-nav li a {}
+ul.sidebar-nav li a span.fa-caret-right { 
+-webkit-transform: rotate(0deg);
+	-moz-transform: rotate(0deg);
+	-o-transform: rotate(0deg);
+	transform: rotate(0deg);
+}
+ul.sidebar-nav li a.open span.fa-caret-right { 
+     -webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	transform: rotate(-90deg);  
+}
