@@ -113,13 +113,13 @@
 
             <div id="gallery1" class="carousel slide bg-light pt-4 pb-4" data-ride="carousel">
 
-                <div class="carousel-inner container col-md-10 ">
+                <div class="carousel-inner container col-md-6 ">
 
                     <div class="carousel-item active ">
                         <div class="container mt-4 pb-3">
                             <div class="col-md-12">   
-                                <p class=" " style="color:darkslategray">{{ $commentaires[0]->contenu_comm }}</p> 
                                 <p class=""><strong>{{ $commentaires[0]->user->name }}</strong><small style=" color:darkslategray"> / {{ $commentaires[0]->created_at }}</small> </p>
+                                <p class="pl-1 " style="color:darkslategray">{{ $commentaires[0]->contenu_comm }}</p> 
                             </div>
                         </div>
                     </div>
@@ -129,8 +129,8 @@
                         <div class="carousel-item ">
                             <div class="container mt-4 pb-3">
                                 <div class="col-md-12 " >
-                                    <p class=" " style="color:darkslategray">{{ $comm->contenu_comm }}</p> 
                                     <p class=""><strong>{{ $comm->user->name }}</strong><small style=" color:darkslategray"> / {{ $comm->created_at}}</small> </p>
+                                    <p class=" pl-1" style="color:darkslategray">{{ $comm->contenu_comm }}</p> 
                                 </div>
                             </div>
                         </div>
@@ -139,7 +139,8 @@
 
                 </div>
             
-                <a class="carousel-control-prev  " href="#gallery1" role="button" data-slide="prev">
+               
+                <a class="carousel-control-prev" href="#gallery1" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon bg-dark" aria-hidden="true"></span>
                     <span class="sr-only ">Previous</span>
                 </a>
@@ -148,6 +149,7 @@
                     <span class="carousel-control-next-icon bg-dark" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </a>
+              
 
             </div>
 
@@ -157,7 +159,7 @@
                 <h5 class="hr">CONSEILS ET ASTUCES TRES UTILES</h5>
             </div>
 
-            <div class="container d-flex justify-content-around mt-4 pb-3 ">
+            <div class="d-flex justify-content-around mt-4 pb-3 ">
                 <div class="card bg-light" style="width: 18rem;">
                     <img class="card-img-top" src="\pictures\conseils&astuce\1.jpg" alt="Card image cap">
                     <div class="card-body">
@@ -176,6 +178,13 @@
                     <img class="card-img-top" src="\pictures\conseils&astuce\3.jpg" alt="Card image cap">
                     <div class="card-body">
                         <h5 class="card-title">titre du conseil 3</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card bg-light" style="width: 18rem;">
+                    <img class="card-img-top" src="\pictures\conseils&astuce\4.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">titre du conseil 4</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                 </div>
