@@ -132,3 +132,25 @@ ul.sidebar-nav li a.open span.fa-caret-right {
 	-o-transform: rotate(-90deg);
 	transform: rotate(-90deg);  
 }
+
+.mob{
+    display: none;
+}
+
+.desk{
+    display: block;
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 480px){
+
+    .mob{
+		display: block;
+	}
+
+	.desk{
+		display: none;
+	}
+
+
+}

@@ -5,18 +5,230 @@
 @endsection
 
 @section('content')
-  
 
-    <div class="container col-md-8 ">
+    <!-- MOBILE -->
+    <div class="container col-md-8 mob">
+        <div id="carouselExampleIndicatorsmob" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicatorsmob" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicatorsmob" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicatorsmob" data-slide-to="2"></li>
+            </ol>            
+            
+             <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="\pictures\slide\IMG-1.jpg" alt="First slide" style="height:200px">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="\pictures\slide\IMG-2.jpg" alt="Second slide" style="height:200px">
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="\pictures\slide\IMG-3.jpg" alt="Third slide" style="height:200px">
+                </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#carouselExampleIndicatorsmob" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicatorsmob" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+
+
+    <div class="bg-white mob">
+        <div class="container col-md-10 ">
+
+            <div class="pt-5 mb-2">
+                <h6 class="hr" style="font-size:0.8rem">NOS MARQUES BIO ET NATURELLES</h6>
+            </div>
+
+            <div id="gallery" class="carousel slide mt-4" data-ride="carousel">
+                <div class="carousel-inner container col-md-11">
+                    <div class="carousel-item active">
+                        <div class="d-flex">
+                            <div class="col-md-4 text-center " >
+                                <img src="\pictures\marques\alphanova.jpg" alt="" class="img-thumbnail border-0 " style="height:100px">
+                            </div>
+                            <div class="col-md-4 text-center " >
+                                <img src="\pictures\marques\ovo.png" alt="" class="img-thumbnail border-0" style="height:100px" >
+                            </div>
+                            <div class="col-md-4 text-center " >
+                                <img src="\pictures\marques\gilbert.png" alt="" class=" img-thumbnail border-0" style="height:100px">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item ">
+                        <div class="d-flex">
+                            <div class="col-md-4 text-center " >
+                                <img src="\pictures\marques\camilia.png" alt="" class=" img-thumbnail border-0" style="height:100px">
+                            </div>
+                            <div class="col-md-4 text-center " >
+                                <img src="\pictures\marques\pranarom.jpg" alt="" class=" img-thumbnail border-0" style="height:100px">
+                            </div>
+                            <div class="col-md-4 text-center " >
+                                <img src="\pictures\marques\weleda.jpg" alt="" class=" img-thumbnail border-0" style="height:100px">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item ">
+                        <div class="d-flex">                        
+                            <div class="col-md-4 text-center " >
+                                <img src="\pictures\marques\hipp.png" alt="" class=" img-thumbnail border-0" style="height:100px">
+                            </div>
+                            <div class="col-md-4 text-center " >
+                                <img src="\pictures\marques\biogaia.jpg" alt="" class=" img-thumbnail border-0" style="height:100px">
+                            </div>
+                            <div class="col-md-4 text-center " >
+                                <img src="\pictures\marques\gilbert.png" alt="" class=" img-thumbnail border-0" style="height:100px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <a class="carousel-control-prev" href="#gallery" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only ">Previous</span>
+                </a>
+
+                <a class="carousel-control-next" href="#gallery" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+
+
+            </div>
+
+            <div class="mt-4 mb-2">
+                <h6 class="hr" style="font-size:0.8rem">NOS MEILLEURES VENTES DU MOIS</h6>
+            </div>
+
+            <div class="d-flex justify-content-around flex-wrap" >
+                @foreach($afficherproduits as $element)
+                <figure class="text-center mt-4 " style="width:160px;" >
+                   <a href="{{ route('siteecommerce.product',[$element->id]) }}"><img src="{{ $element->photo_produit }}" alt="" style="width:95px;height:95px" class="">
+                    <figcaption class=" mt-2 mb-1" style="font-size:0.73rem;height:35px">{{ $element->nom_produit }}</figcaption></a>
+                    <figcaption class="mb-1 text-success "><small>{{ $element->marque }}</small></figcaption>
+                    <figcaption class="mb-1 "  style="font-size:0.73rem;"><strong>{{ $element->prix }}.00 DH</strong></figcaption>
+                    <form action="{{ route('siteecommerce.add-cart') }}" method="POST">
+                        @csrf
+                        <input type="hidden" id="id" name="id" value="{{ $element->id }}">
+                        <button type="submit" class="btn-sm btn-success" style="font-size:0.73rem;">Ajouter au panier</button>
+                    </form>
+                </figure>
+                @endforeach
+            </div>
+
+
+            <div class=" container text-center mt-3 mb-4  ">
+                <a href="{{ route('siteecommerce.all-products') }}" style="font-size:0.8rem;text-decoration:underline;">Afficher tous les produits</a>
+            </div>
+
+
+            <div class="mt-5 mb-4 ">
+                <h6 class="hr" style="font-size:0.8rem">AVIS DE NOS CHERS CLIENT(E)S</h6>
+            </div>
+
+            <div id="gallery1" class="carousel slide bg-light mt-2 mb-3" data-ride="carousel">
+
+                <div class="carousel-inner container col-md-6 ">
+
+                    <div class="carousel-item active ">
+                        <div class="container">
+                            <div class="col-md-12">   
+                                <strong style="font-size:0.85rem">{{ $commentaires[0]->user->name }}</strong><br>
+                                <small style="font-size:0.7rem;color:darkslategray"> {{ $commentaires[0]->created_at }}</small>
+                                <p class=" pt-3" style="font-size:0.85rem;color:darkslategray;">{{ $commentaires[0]->contenu_comm }}</p> 
+                            </div>
+                        </div>
+                    </div>
+
+                    @if(isset($commentaires) )
+                        @foreach($commentaires as $comm)
+                        <div class="carousel-item ">
+                            <div class="container ">
+                                <div class="col-md-12 " >
+                                    <strong style="font-size:0.85rem">{{ $comm->user->name }}</strong><br>
+                                    <small style="font-size:0.7rem;color:darkslategray">{{ $comm->created_at}}</small>
+                                    <p class="pt-3" style="font-size:0.85rem;color:darkslategray;">{{ $comm->contenu_comm }}</p> 
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    @endif
+
+                </div>
+              
+            </div>
+
+            
+
+            <!-- <div class="mt-4 pb-4">
+                <h6 class="hr" style="font-size:0.8rem">CONSEILS ET ASTUCES TRES UTILES</h6>
+            </div>
+
+            <div class="d-flex justify-content-around mt-4 pb-3 ">
+                <div class="card bg-light" style="width: 18rem;">
+                    <img class="card-img-top" src="\pictures\conseils&astuce\1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">titre du conseil 1</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card bg-light" style="width: 18rem;">
+                    <img class="card-img-top" src="\pictures\conseils&astuce\2.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">titre du conseil 2</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card bg-light" style="width: 18rem;">
+                    <img class="card-img-top" src="\pictures\conseils&astuce\3.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">titre du conseil 3</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+                <div class="card bg-light" style="width: 18rem;">
+                    <img class="card-img-top" src="\pictures\conseils&astuce\4.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">titre du conseil 4</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                </div>
+            </div>
+           
+            <div class=" container col-md-3 text-center pb-3 ">
+                <a href=""><u><p>Afficher plus de conseils</p></u></a>
+            </div> -->
+
+
+        </div>
+    </div>
+
+    <!-- fin mobile-->
+
+
+  
+    <!-- desktop-->
+    <div class="container col-md-8 desk">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-            </ol>
-            <div class="carousel-inner">
+            </ol>            
+            
+             <div class="carousel-inner ">
                 <div class="carousel-item active">
-                    <img class="d-block w-100 " src="\pictures\slide\IMG-1.jpg" alt="First slide" style="height:400px">
+                    <img class="d-block w-100" src="\pictures\slide\IMG-1.jpg" alt="First slide" style="height:400px">
                 </div>
                 <div class="carousel-item">
                     <img class="d-block w-100" src="\pictures\slide\IMG-2.jpg" alt="Second slide" style="height:400px">
@@ -25,6 +237,7 @@
                     <img class="d-block w-100" src="\pictures\slide\IMG-3.jpg" alt="Third slide" style="height:400px">
                 </div>
             </div>
+
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -36,10 +249,10 @@
         </div>
     </div>
 
-    <div class="bg-white ">
+    <div class="bg-white desk">
         <div class="container col-md-10 ">
 
-            <div class="pt-5 mt-5 mb-4">
+            <div class="pt-5 mt-5 mb-4 ">
                 <h5 class="hr">NOS MARQUES BIO ET NATURELLES</h5>
             </div>
 
@@ -197,6 +410,8 @@
 
         </div>
     </div>
+
+    <!-- fin desktop-->
         
     
 
